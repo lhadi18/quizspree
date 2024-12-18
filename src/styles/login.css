@@ -1,0 +1,96 @@
+/* Container Styles */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensures container takes up full viewport height */
+  background-color: #f8f8f8; /* Optional: Adds a subtle background */
+  padding: 20px; /* Adds some padding to handle smaller screens */
+  box-sizing: border-box; /* Ensures padding doesn't affect alignment */
+}
+
+/* Card Styles */
+.login-card {
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* Aligns elements vertically */
+  align-items: center; /* Centers form elements horizontally */
+  box-sizing: border-box; /* Ensures consistent padding */
+}
+
+/* Heading */
+.login-card h1 {
+  color: #703d02;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+/* Form Label and Input */
+.login-card form {
+  width: 100%; /* Ensures form takes the full card width */
+  display: flex;
+  flex-direction: column; /* Ensures fields stack vertically */
+  align-items: center; /* Centers fields horizontally */
+  gap: 10px; /* Adds spacing between fields and button */
+  box-sizing: border-box; /* Consistent padding/margin */
+}
+
+.login-card label {
+  display: block;
+  font-size: 14px;
+  color: #333;
+  width: 100%; /* Spans full width of parent container */
+  text-align: left; /* Aligns label text to the left */
+}
+
+.login-card input {
+  width: 100%; /* Matches the width of the form */
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box; /* Ensures consistent padding */
+}
+
+.login-card input:focus {
+  border-color: #703d02;
+}
+
+/* Button */
+.login-card .btn {
+  width: 100%; /* Matches the width of input fields */
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #703d02;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box; /* Consistent sizing with inputs */
+}
+
+.login-card .btn:hover {
+  background-color: #8a4e15;
+}
+
+/* Error Message */
+.error-message {
+  background-color: #ffd7d7;
+  color: #d8000c;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 100%; /* Spans full width of parent container */
+  text-align: left; /* Aligns the error message text */
+  box-sizing: border-box; /* Ensures consistent padding */
+}

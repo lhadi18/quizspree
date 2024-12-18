@@ -1,0 +1,188 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.quiz-page {
+  font-family: Arial, sans-serif;
+  color: #703d02;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 100vh !important;
+  width: 100vw !important;
+  box-sizing: border-box !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+  background: url('../assets/images/image-bg.jpg') center/cover no-repeat;
+  background-blend-mode: overlay;
+  background-color: rgba(255, 240, 202, 0.9);
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  color: #703d02;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #703d02;
+}
+
+.question-section {
+  width: 100% !important; /* Ensure full screen width */
+  max-width: none !important; /* Remove any maximum width */
+  background: #fff0ca; /* Light cream background for questions */
+  border: 2px solid #703d02; /* Dark brown border for emphasis */
+  border-radius: 8px; /* Rounded corners for visual softness */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 40px; /* Generous padding for content */
+  margin: 0 !important; /* Remove margins to fill width completely */
+}
+
+.question-section p {
+  font-size: 1.5rem; /* Larger font for question text */
+  margin-bottom: 30px; /* Extra spacing below question */
+  color: #703d02; /* Dark brown text for questions */
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Increase spacing between buttons */
+  padding: 20px 0; /* Add padding above and below buttons */
+}
+
+.answer-btn {
+  font-size: 1.2rem; /* Larger button text */
+  padding: 15px 20px; /* Larger clickable area */
+  background: #703d02; /* Dark brown background for buttons */
+  color: #fff0ca; /* Light cream text for contrast */
+  border: 2px solid #703d02; /* Solid dark brown border for style */
+  border-radius: 8px; /* Rounded button corners */
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, color 0.3s ease;
+  width: 100% !important; /* Buttons take up the full width */
+  text-align: center;
+}
+
+.answer-btn:hover {
+  background: #fff0ca; /* Light cream background on hover */
+  color: #703d02; /* Dark brown text on hover */
+  transform: scale(1.02); /* Subtle hover effect */
+}
+
+.answer-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(112, 61, 2, 0.5); /* Dark brown focus ring */
+}
+
+.results {
+  text-align: center;
+  background: #fff0ca; /* Light cream background for results */
+  padding: 40px !important; /* Generous padding for content */
+  border: 2px solid #703d02; /* Dark brown border for emphasis */
+  border-radius: 8px !important; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  width: 100% !important; /* Full width */
+  height: 100% !important; /* Ensure it fills the height */
+  min-height: 100vh !important; /* Full viewport height */
+  margin: 0 !important; /* Remove margins to fill width completely */
+  display: flex !important; /* Flex layout for better content alignment */
+  flex-direction: column !important; /* Stack content vertically */
+  align-items: center !important; /* Center align horizontally */
+  justify-content: center !important; /* Center align vertically */
+}
+
+.results p {
+  font-size: 1.5rem !important; /* Larger results text */
+  margin-top: 20px !important;
+  color: #703d02; /* Dark brown for text */
+}
+
+.retry-btn,
+.community-btn {
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin: 10px;
+  background: #703d02;
+  color: #fff0ca;
+  border: 2px solid #703d02;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, color 0.3s ease;
+}
+
+.retry-btn:hover,
+.community-btn:hover {
+  background: #fff0ca;
+  color: #703d02;
+  transform: scale(1.02);
+}
+
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
+}
+
+.review-section {
+  margin: 20px 0;
+}
+
+.results-actions {
+  margin-top: 20px;
+}
+
+/* Previous and Next Navigation Buttons */
+.nav-btn {
+  font-size: 1.2rem; /* Adjust text size */
+  padding: 12px 20px; /* Comfortable padding for clickable area */
+  background: #703d02; /* Dark brown background */
+  color: #fff0ca; /* Light cream text */
+  border: 2px solid #703d02; /* Dark brown border for emphasis */
+  border-radius: 8px; /* Rounded corners for visual softness */
+  cursor: pointer; /* Indicate clickable behavior */
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+  margin: 0 10px; /* Add spacing between buttons */
+  min-width: 120px; /* Ensure consistent button size */
+  text-align: center;
+}
+
+.nav-btn:hover {
+  background: #fff0ca; /* Light cream background on hover */
+  color: #703d02; /* Dark brown text on hover */
+  transform: scale(1.05); /* Subtle zoom effect */
+}
+
+.nav-btn:disabled {
+  background: #ddd; /* Gray out disabled buttons */
+  color: #aaa; /* Light gray text for disabled state */
+  border-color: #ddd; /* Match border to disabled background */
+  cursor: not-allowed; /* Indicate non-clickable state */
+  transform: none; /* No scaling on disabled buttons */
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0; /* Add vertical spacing */
+  width: 100%; /* Full width for alignment */
+  max-width: 400px; /* Restrict maximum width */
+}

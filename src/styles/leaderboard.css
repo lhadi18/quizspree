@@ -1,0 +1,168 @@
+/* Full-Screen Layout */
+.full-screen {
+  width: 100% !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  padding: 20px;
+  background-color: #fff8e5;
+  box-sizing: border-box;
+}
+
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: url('../assets/images/community-background.jpg') center/cover
+    no-repeat;
+  background-blend-mode: overlay;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #fff8e5;
+  border: 2px solid #703d02;
+  border-radius: 5px;
+  color: #703d02;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.tab-button:hover {
+  background-color: #703d02;
+  color: #fff0ca;
+  transform: scale(1.05);
+}
+
+.tab-button.active {
+  background-color: #703d02;
+  color: #fff0ca;
+}
+
+.tab-button:not(.active) {
+  background-color: #f0e4d1;
+  border-color: #8a4e15;
+}
+
+/* Leaderboard Styles */
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 90%; /* Slightly reduced width */
+  max-width: 700px; /* Maximum width to avoid oversized cards */
+}
+
+.leaderboard-card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 15px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.leaderboard-card:hover {
+  transform: scale(1.02);
+}
+
+.leaderboard-card.highlight {
+  border-color: #703d02;
+  background-color: white;
+}
+
+.rank {
+  font-size: 24px;
+  font-weight: bold;
+  color: #703d02;
+  margin-right: 10px;
+}
+
+/* User Details - Align Left */
+.details {
+  text-align: left;
+}
+
+.details h2 {
+  margin: 0;
+  color: #703d02;
+}
+
+.details p {
+  margin: 5px 0;
+  color: #555;
+  font-size: 14px;
+}
+
+/* Pagination */
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pagination button {
+  padding: 8px 15px;
+  font-size: 14px;
+  background-color: #703d02;
+  color: #fff0ca;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button:hover {
+  background-color: #8a4e15;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-size: 14px;
+  color: #703d02;
+}
+
+.empty-leaderboard {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff9e6; /* Light yellow background */
+  border: 2px dashed #703d02; /* Dashed border for emphasis */
+  border-radius: 10px;
+  margin: 20px auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.empty-leaderboard h2 {
+  color: #703d02;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.empty-leaderboard p {
+  color: #555;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.trophy-emoji {
+  margin: 15px 0;
+  animation: bounce 1.5s infinite;
+}

@@ -1,0 +1,89 @@
+/* Header Container */
+.header {
+  display: flex;
+  position: relative;
+  justify-content: space-between; /* Ensures balance between left and right sections */
+  align-items: center; /* Vertically centers everything */
+  background: linear-gradient(
+    90deg,
+    rgba(112, 61, 2, 1) 0%,
+    rgba(136, 108, 85, 1) 100%
+  );
+  color: #fff0ca;
+  padding: 10px 20px;
+  height: 80px;
+}
+
+/* Left Section: Logo and Title */
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo-placeholder {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.logo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.header h1 a {
+  text-decoration: none;
+  color: #fff0ca;
+}
+
+/* Centered Navigation Links */
+.header-center {
+  display: flex;
+  gap: 15px;
+  margin-left: 20px; /* Adds a bit of spacing after the title */
+}
+
+.header-center a {
+  text-decoration: none;
+  color: #fff0ca;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.header-center a:hover {
+  color: #ffd700;
+}
+
+/* Right Section: Logout/Profile */
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Common Styles for Login and Logout Buttons */
+.header-right .header-button {
+  background: none;
+  border: none;
+  color: #fff0ca;
+  font-size: 18px;
+  cursor: pointer;
+  text-decoration: none; /* Ensures links look like buttons */
+  transition: color 0.3s ease;
+  padding: 0; /* Remove default padding on button */
+  line-height: 1; /* Align line height with the link */
+  display: inline-flex; /* Ensures consistent rendering */
+  align-items: center; /* Vertically centers content */
+  height: 30px; /* Match it with the line height or similar elements */
+}
+
+.header-right .header-button:hover {
+  color: #ffd700;
+}
