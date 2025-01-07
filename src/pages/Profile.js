@@ -21,7 +21,7 @@ function Profile() {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          `http://13.212.85.96:9500/api/auth/${user.user_id}`
+          `https://6c8c-2402-1980-243-fbce-e505-dec-e13d-3e65.ngrok-free.app/api/auth/${user.user_id}`
         )
         const { email, username } = response.data
         setFormData({
@@ -80,7 +80,7 @@ function Profile() {
       if (password) updatedData.password = password // Include password if provided
 
       const response = await axios.put(
-        `http://13.212.85.96:9500/api/auth/${user.user_id}`,
+        `https://6c8c-2402-1980-243-fbce-e505-dec-e13d-3e65.ngrok-free.app/api/auth/${user.user_id}`,
         updatedData
       )
       login(response.data.user) // Update user data in context

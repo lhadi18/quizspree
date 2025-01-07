@@ -24,13 +24,16 @@ function Login() {
       setError('') // Clear any previous errors
 
       // Send login request to backend
-      const response = await fetch('http://13.212.85.96:9500/api/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(credentials),
-      })
+      const response = await fetch(
+        'https://6c8c-2402-1980-243-fbce-e505-dec-e13d-3e65.ngrok-free.app/api/auth/login',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(credentials),
+        }
+      )
 
       const data = await response.json()
 

@@ -21,7 +21,9 @@ function CreateQuiz() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch('http://13.212.85.96:9500/api/categories')
+        const response = await fetch(
+          'https://6c8c-2402-1980-243-fbce-e505-dec-e13d-3e65.ngrok-free.app/api/categories'
+        )
         if (!response.ok) throw new Error('Failed to fetch categories')
         const data = await response.json()
         setCategories(data)
@@ -94,11 +96,14 @@ function CreateQuiz() {
     }
 
     try {
-      const response = await fetch('http://13.212.85.96:9500/api/quizzes', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(quizPayload),
-      })
+      const response = await fetch(
+        'https://6c8c-2402-1980-243-fbce-e505-dec-e13d-3e65.ngrok-free.app/api/quizzes',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(quizPayload),
+        }
+      )
       if (!response.ok) throw new Error('Failed to submit quiz')
 
       alert('Quiz submitted successfully!')

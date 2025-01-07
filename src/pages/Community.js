@@ -26,9 +26,11 @@ function Community() {
       setError(null)
       try {
         const [categoriesRes, quizzesRes] = await Promise.all([
-          axios.get('http://13.212.85.96:9500/api/categories'),
           axios.get(
-            `http://13.212.85.96:9500/api/quizzes${
+            'https://6c8c-2402-1980-243-fbce-e505-dec-e13d-3e65.ngrok-free.app/api/categories'
+          ),
+          axios.get(
+            `https://6c8c-2402-1980-243-fbce-e505-dec-e13d-3e65.ngrok-free.app/api/quizzes${
               selectedCategory ? `?category_id=${selectedCategory}` : ''
             }`
           ),
@@ -43,7 +45,7 @@ function Community() {
 
         if (user?.user_id) {
           const scoresRes = await axios.get(
-            `http://13.212.85.96:9500/api/user-scores?user_id=${user.user_id}`
+            `https://6c8c-2402-1980-243-fbce-e505-dec-e13d-3e65.ngrok-free.app/api/user-scores?user_id=${user.user_id}`
           )
           const scoresMap = (scoresRes.data || []).reduce((map, score) => {
             map[score.quiz_id] = score.high_score

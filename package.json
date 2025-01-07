@@ -1,5 +1,5 @@
 {
-  "proxy": "http://13.212.85.96:9500",
+  "proxy": "https://6c8c-2402-1980-243-fbce-e505-dec-e13d-3e65.ngrok-free.app",
   "name": "quizspree",
   "version": "0.1.0",
   "private": true,
