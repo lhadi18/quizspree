@@ -19,7 +19,7 @@ function Leaderboard() {
 
         // Fetch data from the backend API
         const response = await fetch(
-          `https://6c8c-2402-1980-243-fbce-e505-dec-e13d-3e65.ngrok-free.app/api/leaderboards?period=${currentTab}`
+          `http://13.212.85.96:9500/api/leaderboards?period=${currentTab}`
         )
 
         if (!response.ok) {
