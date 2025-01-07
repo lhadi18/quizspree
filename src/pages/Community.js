@@ -7,9 +7,12 @@ import '../styles/community.css'
 function Community() {
   const [quizzes, setQuizzes] = useState([])
   const [categories, setCategories] = useState([])
-  const [selectedCategory, setSelectedCategory] = useState('')
   const [userScores, setUserScores] = useState({})
+  const [selectedCategory, setSelectedCategory] = useState('')
   const [selectedQuiz, setSelectedQuiz] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
   const { user } = useUser()
   const navigate = useNavigate()
   const location = useLocation()
@@ -18,64 +21,55 @@ function Community() {
   const quizzesPerPage = 8
 
   useEffect(() => {
-    const queryParams = new URLSearchParams(location.search)
-    const categoryId = queryParams.get('category_id')
-    if (categoryId) {
-      setSelectedCategory(categoryId)
-    }
-  }, [location.search])
-
-  useEffect(() => {
     const fetchData = async () => {
+      setLoading(true)
+      setError(null)
       try {
-        const quizRes = await axios.get(
-          `https://7783-2402-1980-828b-9014-30bf-4572-ca56-5f1b.ngrok-free.app/api/quizzes${
-            selectedCategory ? `?category_id=${selectedCategory}` : ''
-          }`
+        const [categoriesRes, quizzesRes] = await Promise.all([
+          axios.get('http://13.212.85.96:9500/api/categories'),
+          axios.get(
+            `http://13.212.85.96:9500/api/quizzes${
+              selectedCategory ? `?category_id=${selectedCategory}` : ''
+            }`
+          ),
+        ])
+
+        console.log(categories.data)
+
+        setCategories(
+          Array.isArray(categoriesRes.data) ? categoriesRes.data : []
         )
-        setQuizzes(quizRes.data)
+        setQuizzes(Array.isArray(quizzesRes.data) ? quizzesRes.data : [])
 
         if (user?.user_id) {
           const scoresRes = await axios.get(
-            `https://7783-2402-1980-828b-9014-30bf-4572-ca56-5f1b.ngrok-free.app/api/user-scores?user_id=${user.user_id}`
+            `http://13.212.85.96:9500/api/user-scores?user_id=${user.user_id}`
           )
-
-          const scoresMap = scoresRes.data.reduce((map, score) => {
+          const scoresMap = (scoresRes.data || []).reduce((map, score) => {
             map[score.quiz_id] = score.high_score
             return map
           }, {})
           setUserScores(scoresMap)
         }
-        setCurrentPage(1)
+
+        setCurrentPage(1) // Reset to the first page after fetching data
       } catch (error) {
         console.error('Error fetching data:', error)
+        setError('Failed to load data. Please try again later.')
+      } finally {
+        setLoading(false)
       }
     }
 
     fetchData()
-  }, [user, selectedCategory])
-
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const res = await axios.get(
-          'https://7783-2402-1980-828b-9014-30bf-4572-ca56-5f1b.ngrok-free.app/api/categories'
-        )
-        setCategories(res.data)
-      } catch (error) {
-        console.error('Error fetching categories:', error)
-      }
-    }
-
-    fetchCategories()
-  }, [])
+  }, [selectedCategory, user])
 
   const handleQuizClick = (quiz) => {
     setSelectedQuiz(quiz)
   }
 
   const handleStartQuiz = () => {
-    navigate(`/quiz/${selectedQuiz.quiz_id}`)
+    navigate(`/quiz/${selectedQuiz?.quiz_id}`)
   }
 
   const handleClosePopup = () => {
@@ -96,11 +90,18 @@ function Community() {
     })
   }
 
+  if (loading) {
+    return <div className="loading">Loading quizzes and categories...</div>
+  }
+
+  if (error) {
+    return <div className="error">{error}</div>
+  }
+
   return (
     <div className="community">
       <h1>Community Quizzes</h1>
 
-      {/* Category Filter */}
       <div className="filter">
         <label htmlFor="category">Filter by Category:</label>
         <select
@@ -109,20 +110,19 @@ function Community() {
           onChange={(e) => setSelectedCategory(e.target.value)}
         >
           <option value="">All Categories</option>
-          {categories.map((category) => (
+          {(categories || []).map((category) => (
             <option key={category.category_id} value={category.category_id}>
-              {category.category_name}
+              {category.category_name || 'Unknown'}
             </option>
           ))}
         </select>
       </div>
 
-      {/* Quiz List */}
       <ul>
         {currentQuizzes.map((quiz) => (
           <li key={quiz.quiz_id}>
             <button className="quiz-link" onClick={() => handleQuizClick(quiz)}>
-              {quiz.quiz_name}
+              {quiz.quiz_name || 'Untitled Quiz'}
             </button>
             <span className="category">
               Category: {quiz.category_name || 'Unknown'}
@@ -138,7 +138,6 @@ function Community() {
         ))}
       </ul>
 
-      {/* Pagination Controls */}
       <div className="pagination">
         <button
           onClick={() => handlePageChange('prev')}
@@ -161,12 +160,11 @@ function Community() {
         Create Your Own Quiz
       </Link>
 
-      {/* Popup for selected quiz */}
       {selectedQuiz && (
         <div className="popup">
           <div className="popup-content">
-            <h2>{selectedQuiz.quiz_name}</h2>
-            <p>Category: {selectedQuiz.Category?.category_name || 'Unknown'}</p>
+            <h2>{selectedQuiz.quiz_name || 'Untitled Quiz'}</h2>
+            <p>Category: {selectedQuiz.category_name || 'Unknown'}</p>
             <p>
               Your Best Score:{' '}
               {userScores[selectedQuiz.quiz_id] || 'Not Attempted'}

@@ -20,7 +20,7 @@ function QuizPage() {
     const fetchQuizDetails = async () => {
       try {
         const res = await axios.get(
-          `https://7783-2402-1980-828b-9014-30bf-4572-ca56-5f1b.ngrok-free.app/api/quizzes/${quiz_id}`
+          `http://13.212.85.96:9500/api/quizzes/${quiz_id}`
         )
         setQuizDetails(res.data)
       } catch (err) {
@@ -58,14 +58,11 @@ function QuizPage() {
   const submitScore = async (finalScore) => {
     try {
       setLoading(true)
-      await axios.post(
-        `https://7783-2402-1980-828b-9014-30bf-4572-ca56-5f1b.ngrok-free.app/api/scores`,
-        {
-          quiz_id,
-          user_id: user.user_id,
-          score: finalScore,
-        }
-      )
+      await axios.post(`http://13.212.85.96:9500/api/scores`, {
+        quiz_id,
+        user_id: user.user_id,
+        score: finalScore,
+      })
       setLoading(false)
     } catch (err) {
       console.error('Error submitting score:', err)

@@ -36,7 +36,7 @@ function Register() {
     try {
       // Send data to the backend
       const response = await axios.post(
-        'https://7783-2402-1980-828b-9014-30bf-4572-ca56-5f1b.ngrok-free.app/api/auth/register',
+        'http://13.212.85.96:9500/api/auth/register',
         {
           username: formData.username,
           email: formData.email,
