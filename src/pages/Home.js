@@ -22,7 +22,7 @@ function Home() {
       <section className="hero">
         <h1>Welcome to QuizSpree!</h1>
         <p>
-          Challenge yourself to some quizzes, read our mini-blogs, find video
+          Challenge yourself to some quizzes, read up on posts, find video
           resources, and play our minigame{' '}
         </p>
         <Link to="/community" className="btn btn-primary">
