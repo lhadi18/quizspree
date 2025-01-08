@@ -7,7 +7,7 @@ import generalKnowledgeImage from '../assets/images/general-knowledge.jpg'
 import mathsImage from '../assets/images/maths.jpg'
 import englishImage from '../assets/images/english.jpg'
 import geographyImage from '../assets/images/geography.jpg'
-import historyImage from '../assets/images/history.jpeg'
+import historyImage from '../assets/images/history.jpg'
 
 function Home() {
   const navigate = useNavigate()
