@@ -313,7 +313,7 @@ function QuizPage() {
               Retry Quiz
             </button>
             <button className="community-btn" onClick={handleGoToCommunity}>
-              Back to Community
+              Back to Quizzes
             </button>
           </div>
         </div>

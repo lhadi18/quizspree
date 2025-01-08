@@ -72,7 +72,7 @@ function Home() {
       <section className="features">
         <h2>Why Choose QuizSpree?</h2>
         <ul>
-          <li>📈 Track your progress and climb the leaderboard.</li>
+          <li>📈 Track your progress and achieve your learning goals.</li>
           <li>🌍 Join a global community of quiz enthusiasts.</li>
           <li>📚 Learn and have fun at the same time!</li>
         </ul>
