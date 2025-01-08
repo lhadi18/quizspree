@@ -18,9 +18,10 @@ function Header() {
           <Link to="/">QuizSpree</Link>
         </h1>
         <nav className="header-center">
-          <Link to="/community">Community</Link>
-          <Link to="/leaderboard">Leaderboard</Link>
-          <Link to="/resources">Resources</Link>
+          <Link to="/community">Quizzes</Link>
+          <Link to="/leaderboard">Mini Blogs</Link>
+          <Link to="/resources">Videos</Link>
+          <Link to="/memorygame">Memory Game</Link>
           {user && (
             <Link to="/profile" className="nav-link">
               Profile
@@ -36,9 +37,7 @@ function Header() {
             Logout
           </button>
         ) : (
-          <Link to="/login" className="header-button">
-            Login
-          </Link>
+          ''
         )}
       </div>
     </header>

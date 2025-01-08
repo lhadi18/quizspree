@@ -1,7 +1,11 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from 'react-router-dom'
 import Home from './pages/Home'
-// import QuizPage from './pages/QuizPage'
 import Community from './pages/Community'
 import CreateQuiz from './pages/CreateQuiz'
 import Profile from './pages/Profile'
@@ -15,6 +19,7 @@ import Register from './pages/Register'
 import QuizPage from './components/QuizPage'
 import Resources from './pages/Resources'
 import Tribute from './pages/Tribute'
+import MemoryGame from './pages/MemoryGame'
 
 function App() {
   return (
@@ -23,7 +28,6 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/quiz/:category" element={<QuizPage />} /> */}
           <Route path="/community" element={<Community />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/create" element={<CreateQuiz />} />
@@ -33,11 +37,23 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/tribute" element={<Tribute />} />
+          <Route path="/memorygame" element={<MemoryGame />} />
         </Routes>
-        <Footer /> {/* Add Footer here */}
+        <FooterVisibility />
       </Router>
     </UserProvider>
   )
+}
+
+function FooterVisibility() {
+  const location = useLocation()
+
+  // Only render the Footer if we're not on the /leaderboard page
+  if (location.pathname === '/leaderboard' || location.pathname === '/blog') {
+    return null
+  }
+
+  return <Footer />
 }
 
 export default App

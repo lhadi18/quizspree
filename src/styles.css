@@ -12,7 +12,6 @@ body {
   font-family: Arial, sans-serif;
   background-color: white;
   color: var(--accent-color);
-  flex-direction: column;
 }
 
 #root {
@@ -79,7 +78,6 @@ body {
 }
 
 /* Footer styles */
-/* Footer */
 .footer {
   text-align: center;
   padding: 1rem;

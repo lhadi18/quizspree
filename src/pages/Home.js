@@ -22,7 +22,8 @@ function Home() {
       <section className="hero">
         <h1>Welcome to QuizSpree!</h1>
         <p>
-          Challenge yourself, test your knowledge, and climb the leaderboard!
+          Challenge yourself to some quizzes, read our mini-blogs, find video
+          resources, and play our minigame{' '}
         </p>
         <Link to="/community" className="btn btn-primary">
           Explore Community Quizzes
@@ -62,12 +63,6 @@ function Home() {
             <div className="category-card">
               <img src={scienceImage} alt="Science" />
               <Link to="/community?category_id=2">Science</Link>
-            </div>
-
-            {/* General Knowledge */}
-            <div className="category-card">
-              <img src={generalKnowledgeImage} alt="General Knowledge" />
-              <Link to="/community?category_id=3">General Knowledge</Link>
             </div>
           </div>
         </div>

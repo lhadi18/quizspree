@@ -1,0 +1,60 @@
+/* CSS (memorygame.css) */
+.memory-game {
+  text-align: center;
+  margin: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.memory-game h1 {
+  font-size: 2rem;
+  color: #703d02;
+  margin-bottom: 50px;
+}
+
+.memory-game .game-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.memory-game .card {
+  width: 80px;
+  height: 80px;
+  background-color: #ccc;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.memory-game .card.flipped {
+  cursor: default;
+}
+
+.memory-game .game-info {
+  margin-top: 20px;
+}
+
+.memory-game .game-info p {
+  font-size: 1.2rem;
+  color: #703d02;
+}
+
+.memory-game .game-info button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #703d02;
+  color: #fff0ca;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.memory-game .game-info button:hover {
+  background-color: #8a4e15;
+}
