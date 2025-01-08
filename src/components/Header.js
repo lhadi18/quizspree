@@ -19,7 +19,7 @@ function Header() {
         </h1>
         <nav className="header-center">
           <Link to="/community">Quizzes</Link>
-          <Link to="/leaderboard">Mini Blogs</Link>
+          <Link to="/leaderboard">Mini Reads</Link>
           <Link to="/resources">Videos</Link>
           <Link to="/memorygame">Memory Game</Link>
           {user && (

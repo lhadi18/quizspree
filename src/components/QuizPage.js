@@ -4,9 +4,8 @@ import '../styles/quiz.css'
 
 function QuizPage() {
   const navigate = useNavigate()
-  const { quiz_id } = useParams() // Access the quiz_id from the URL
+  const { quiz_id } = useParams()
 
-  // Static questions for the quizzes
   const quizData = {
     101: {
       quiz_name: 'Grammar Essentials',

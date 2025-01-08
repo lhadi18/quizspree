@@ -69,7 +69,7 @@ If you’re not sure where to start, try sketching something simple, like your f
 
   return (
     <div className="leaderboard full-screen">
-      <h1 className="leaderboard-title">Educational Blog</h1>
+      <h1 className="leaderboard-title">Educational Reads</h1>
 
       {/* Blog Post */}
       <div className="blog-post">
