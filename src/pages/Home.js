@@ -26,7 +26,7 @@ function Home() {
           resources, and play our minigame{' '}
         </p>
         <Link to="/community" className="btn btn-primary">
-          Explore Community Quizzes
+          Explore Quizzes
         </Link>
       </section>
 

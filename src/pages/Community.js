@@ -70,7 +70,7 @@ function Community() {
 
   return (
     <div className="community">
-      <h1>Community Quizzes</h1>
+      <h1>Quizzes</h1>
 
       <div className="filter">
         <label htmlFor="category">Filter by Category:</label>
